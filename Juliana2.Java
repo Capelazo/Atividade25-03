@@ -1,33 +1,33 @@
 import java.util.Random;
 
-public class JogoAdivinhacao {
-    private int numeroSorteado;
+public class Jogo {
+    private int numSorteado;
 
-    public JogoAdivinhacao() {
+    public Jogo() {
         sortear();
     }
 
     public void sortear() {
         Random random = new Random();
-        numeroSorteado = random.nextInt(100);
+        numSorteado = random.nextInt(100);
     }
 
     public String adivinhar(int tentativa) {
         if (tentativa < 0 || tentativa > 99) {
             return "Número inválido! Por favor, escolha um número entre 0 e 99.";
-        } else if (tentativa < numeroSorteado) {
+        } else if (tentativa < numSorteado) {
             return "Tente um número maior.";
-        } else if (tentativa > numeroSorteado) {
+        } else if (tentativa > numSorteado) {
             return "Tente um número menor.";
         } else {
-            return "Parabéns! Você acertou o número " + numeroSorteado + "!";
+            return "Você acertou o número: " + numSorteado + "!";
         }
     }
 
     public static void main(String[] args) {
-        JogoAdivinhacao jogo = new JogoAdivinhacao();
+        Jogo jogo = new Jogo();
 
-        System.out.println("Número sorteado. Tente adivinhar!");
+        System.out.println("Número sorteado. De seu palpite!");
 
         int tentativa = 50;
         System.out.println("Sua tentativa: " + tentativa);
